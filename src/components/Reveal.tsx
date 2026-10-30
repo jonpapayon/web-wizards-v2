@@ -31,6 +31,7 @@ export function Reveal({ children, className }: Props) {
       const strikes = root.querySelectorAll<HTMLElement>("[data-strike]");
       const dims = root.querySelectorAll<HTMLElement>("[data-dim]");
       const draws = root.querySelectorAll<SVGElement>("[data-draw]");
+      const grows = root.querySelectorAll<HTMLElement>("[data-grow]");
       const fades = root.querySelectorAll<HTMLElement | SVGElement>(
         "[data-fade]"
       );
@@ -39,6 +40,7 @@ export function Reveal({ children, className }: Props) {
       utils.set(strikes, { scaleX: 0 });
       utils.set(dims, { color: BONE });
       utils.set(draws, { strokeDashoffset: 1 });
+      utils.set(grows, { scaleY: 0 });
       utils.set(fades, { opacity: 0 });
 
       observer = new IntersectionObserver(
@@ -55,6 +57,9 @@ export function Reveal({ children, className }: Props) {
                 ease: "outExpo",
               })
             );
+          }
+
+          if (dims.length) {
             running.push(
               animate(dims, {
                 color: SMOKE,
@@ -71,6 +76,16 @@ export function Reveal({ children, className }: Props) {
                 strokeDashoffset: 0,
                 duration: 1100,
                 delay: stagger(120),
+                ease: "inOutQuad",
+              })
+            );
+          }
+
+          if (grows.length) {
+            running.push(
+              animate(grows, {
+                scaleY: 1,
+                duration: 2200,
                 ease: "inOutQuad",
               })
             );

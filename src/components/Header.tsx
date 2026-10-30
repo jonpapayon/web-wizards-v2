@@ -1,6 +1,5 @@
 import Link from "next/link";
-
-const WHATSAPP_URL = "https://wa.me/523511778020"; // TODO: pon tu número con lada, sin + ni espacios
+import { WHATSAPP_URL } from "@/lib/contact";
 
 export function Header() {
   return (
@@ -20,6 +19,12 @@ export function Header() {
             className="hidden font-mono text-label uppercase text-smoke transition-colors hover:text-bone sm:inline"
           >
             Sistema
+          </a>
+          <a
+            href="#metodo"
+            className="hidden font-mono text-label uppercase text-smoke transition-colors hover:text-bone sm:inline"
+          >
+            Método
           </a>
           <Link
             href="/calculadora/"
