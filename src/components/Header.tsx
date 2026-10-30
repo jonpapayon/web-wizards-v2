@@ -26,12 +26,6 @@ export function Header() {
           >
             Método
           </a>
-          <Link
-            href="/calculadora/"
-            className="hidden font-mono text-label uppercase text-smoke transition-colors hover:text-bone sm:inline"
-          >
-            Calculadora
-          </Link>
           <a
             href={WHATSAPP_URL}
             className="border border-bone px-4 py-2.5 font-mono text-label uppercase text-bone transition-colors hover:bg-bone hover:text-ink"

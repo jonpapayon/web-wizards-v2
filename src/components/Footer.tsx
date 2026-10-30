@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 export function Footer() {
@@ -21,12 +20,6 @@ export function Footer() {
           <a href="#metodo" className="transition-colors hover:text-bone">
             Método
           </a>
-          <Link
-            href="/calculadora/"
-            className="transition-colors hover:text-bone"
-          >
-            Calculadora
-          </Link>
           <a href={WHATSAPP_URL} className="transition-colors hover:text-bone">
             WhatsApp
           </a>

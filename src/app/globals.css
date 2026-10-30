@@ -9,6 +9,7 @@
   --color-smoke: #8a8a82;
   --color-bone: #efebe2;
   --color-signal: #2b4cff;
+  --color-signal-text: #7d90ff;
   --color-seal: #e8391d;
 
   /* Escala tipográfica */
@@ -140,4 +141,41 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ---------- Estado inicial de las animaciones ----------
+   El script del layout añade la clase "anim" a <html> antes de pintar,
+   salvo con movimiento reducido. Así no hay parpadeo en la primera carga. */
+.anim [data-strike] {
+  transform: scaleX(0);
+}
+.anim [data-dim] {
+  color: var(--color-bone);
+}
+.anim [data-grow] {
+  transform: scaleY(0);
+}
+.anim [data-fade] {
+  opacity: 0;
+}
+.anim [data-draw] {
+  stroke-dashoffset: 1;
+}
+.anim [data-msg] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.anim [data-seal] {
+  opacity: 0;
+  transform: scale(1.8);
+}
+.anim [data-node] {
+  background-color: var(--color-graphite);
+  border-color: var(--color-line);
+}
+.anim [data-line] {
+  transform: scaleY(0);
+}
+.anim [data-label] {
+  opacity: 0.35;
 }

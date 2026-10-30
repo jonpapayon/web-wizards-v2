@@ -22,15 +22,36 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const title = "Web Wizards: automatización para tu negocio";
+const description =
+  "Estudio de tecnología que ayuda a negocios a modernizar sus operaciones con desarrollo web, automatización, software e inteligencia artificial.";
+
 export const metadata: Metadata = {
-  title: "Web Wizards: automatización para tu negocio",
-  description:
-    "Estudio de tecnología que ayuda a negocios a modernizar sus operaciones con desarrollo web, automatización, software e inteligencia artificial.",
+  metadataBase: new URL("https://webwizards.site"),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: "Web Wizards",
+    locale: "es_MX",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export const viewport: Viewport = {
   themeColor: "#0f0f0e",
 };
+
+// Se ejecuta antes de pintar: activa el estado inicial de las animaciones.
+// Si algo falla, a los 5 s se quita la clase y el contenido siempre queda visible.
+const animBootstrap = `(function(){try{var d=document.documentElement;if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("anim");setTimeout(function(){d.classList.remove("anim")},5000)}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -39,7 +60,11 @@ export default function RootLayout({
     <html
       lang="es"
       className={`${instrument.variable} ${geist.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: animBootstrap }} />
+      </head>
       <body suppressHydrationWarning>
         <a href="#contenido" className="skip-link">
           Saltar al contenido
