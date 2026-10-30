@@ -40,7 +40,7 @@ export default function RootLayout({
       lang="es"
       className={`${instrument.variable} ${geist.variable} ${geistMono.variable}`}
     >
-      <body>
+      <body suppressHydrationWarning>
         <a href="#contenido" className="skip-link">
           Saltar al contenido
         </a>
