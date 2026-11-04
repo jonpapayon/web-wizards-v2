@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://webwizards.site"),
   title,
   description,
+  verification: {
+    google: "AOXb81IO-5pSXAdAXw9wdQvvahH6U979XwAgEho5LsM",
+  },
   openGraph: {
     title,
     description,
