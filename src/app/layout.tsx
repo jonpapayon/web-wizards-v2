@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const instrument = Instrument_Serif({
@@ -27,7 +28,7 @@ const description =
   "Estudio de tecnología que ayuda a negocios a modernizar sus operaciones con desarrollo web, automatización, software e inteligencia artificial.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://webwizards.site"),
+  metadataBase: new URL("https://www.webwizards.click"),
   title,
   description,
   verification: {
@@ -73,6 +74,7 @@ export default function RootLayout({
           Saltar al contenido
         </a>
         {children}
+        <Analytics />
       </body>
     </html>
   );
